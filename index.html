@@ -286,6 +286,25 @@
   .step p{font-size:14.5px; color:var(--gray);}
 
   /* BENEFITS GRID */
+  .benefits-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .benefit-card{
+    background:var(--white); border-radius:18px; border:1px solid var(--gray-line);
+    padding:28px 22px; text-align:left;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .benefit-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md);}
+  .benefit-icon{
+    width:48px; height:48px; border-radius:12px;
+    background:var(--navy); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  }
+  .benefit-pct{
+    font-family:'JetBrains Mono',monospace; font-size:30px; font-weight:600; color:var(--navy);
+  }
+  .benefit-pct > span.unit{font-size:15px; color:var(--gray); font-weight:400; font-family:'Poppins',sans-serif;}
+  .benefit-card h3{font-size:15.5px; margin-top:6px; color:var(--gray); font-weight:500;}
+
+  /* FREE SERVICES CALLOUT */
   .callout{
     display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:26px;
     background:linear-gradient(120deg, var(--navy) 0%, #142a5c 100%);
@@ -307,6 +326,20 @@
   .callout .freq .u{font-size:10px; letter-spacing:.1em; color:#9FB0CC; text-transform:uppercase;}
 
   /* PROVIDERS */
+  .providers-wrap{display:grid; grid-template-columns:0.8fr 1.2fr; gap:60px; align-items:center;}
+  .provider-stat{
+    font-family:'JetBrains Mono',monospace; font-size:88px; font-weight:600; color:var(--navy); line-height:1;
+  }
+  .provider-stat .plus{color:var(--teal);}
+  .provider-cats{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .provider-cat{
+    display:flex; align-items:center; gap:12px;
+    background:var(--white); border:1px solid var(--gray-line); border-radius:14px; padding:18px;
+  }
+  .provider-cat .material-symbols-outlined{color:var(--teal-dark); font-size:24px;}
+  .provider-cat span.label{font-size:14px; font-weight:500;}
+
+  /* PARTNER MARQUEE */
   .partners-section{padding:70px 0 100px; overflow:hidden;}
   .partners-head{margin-bottom:44px;}
   .marquee-row{
@@ -603,13 +636,29 @@
     </div>
   </div>
 
+  <!-- PROVIDERS -->
+  <section class="section" id="providers">
+    <div class="wrap providers-wrap">
+      <div class="reveal">
+        <div class="eyebrow">Provider network</div>
+        <div class="provider-stat"><span class="counting" data-target="30">0</span><span class="plus">+</span></div>
+        <p style="color:var(--gray); font-size:15.5px; margin-top:10px; max-width:320px;">Trusted healthcare providers across Accra, and growing every month.</p>
+      </div>
+      <div class="provider-cats reveal-group">
+        <div class="provider-cat"><span class="material-symbols-outlined">local_hospital</span><span class="label">Hospitals</span></div>
+        <div class="provider-cat"><span class="material-symbols-outlined">medical_services</span><span class="label">Clinics</span></div>
+        <div class="provider-cat"><span class="material-symbols-outlined">medication</span><span class="label">Pharmacies</span></div>
+        <div class="provider-cat"><span class="material-symbols-outlined">science</span><span class="label">Laboratories</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- PARTNER MARQUEE -->
   <section class="partners-section" id="partners">
     <div class="wrap partners-head reveal">
       <div class="eyebrow">Who's on the network</div>
       <h2>A growing list of partner providers</h2>
-      <p style="color:var(--gray); font-size:15.5px; margin-top:12px; max-width:520px;">30+
-Trusted healthcare providers across Accra, and growing every month Hospitals, clinics, pharmacies and labs across Accra.</p>
+      <p style="color:var(--gray); font-size:15.5px; margin-top:12px; max-width:520px;">Hospitals, clinics, pharmacies and labs across Accra — thumbnails shown are placeholders until provider logos are added.</p>
     </div>
     <div class="marquee-row">
       <div class="marquee-track">
@@ -757,8 +806,7 @@ Trusted healthcare providers across Accra, and growing every month Hospitals, cl
       <div class="about-copy reveal">
         <div class="eyebrow">About CarePass</div>
         <h2 style="font-size:clamp(26px,3vw,34px); margin-bottom:20px;">A smarter, easier way to access healthcare</h2>
-        <p>CarePass is a digital healthcare platform designed to make quality medical services more accessible and affordable. Through a simple digital health card, CarePass connects you to a trusted network of clinics, hospitals, pharmacies and laboratories, giving you exclusive discounts (Up to 40% off
-          ) on a wide range of healthcare services.</p>
+        <p>CarePass is a digital healthcare platform designed to make quality medical services more accessible and affordable. Through a simple digital health card, CarePass connects you to a trusted network of clinics, hospitals, pharmacies and laboratories, giving you exclusive discounts on a wide range of healthcare services.</p>
         <p>Our goal is to help you save more while receiving better care. Browse providers, access discounted services and pay directly with full transparency — no hidden fees, no complicated process.</p>
         <p>Everything is built around convenience and simplicity, so you can focus on what matters most: your health.</p>
         <div class="not-insurance">
@@ -818,6 +866,38 @@ Trusted healthcare providers across Accra, and growing every month Hospitals, cl
     </div>
   </section>
 
+  <!-- BENEFITS -->
+  <section class="section" id="benefits">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Discount categories</div>
+        <h2>Savings across the care you need most</h2>
+        <p>Discount percentages are applied to each provider's standard listed price at the time of service.</p>
+      </div>
+      <div class="benefits-grid reveal-group">
+        <div class="benefit-card">
+          <div class="benefit-icon"><span class="material-symbols-outlined">monitor_heart</span></div>
+          <div class="benefit-pct"><span class="counting" data-target="40">0</span><span class="unit">%</span></div>
+          <h3>Doctor consultations</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><span class="material-symbols-outlined">medication</span></div>
+          <div class="benefit-pct"><span class="counting" data-target="25">0</span><span class="unit">%</span></div>
+          <h3>Medicines</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><span class="material-symbols-outlined">biotech</span></div>
+          <div class="benefit-pct"><span class="counting" data-target="40">0</span><span class="unit">%</span></div>
+          <h3>Lab tests</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><span class="material-symbols-outlined">health_and_safety</span></div>
+          <div class="benefit-pct"><span class="counting" data-target="40">0</span><span class="unit">%</span></div>
+          <h3>Health packages</h3>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FREE SERVICES -->
   <section class="section section-gray" style="padding-top:0;">
