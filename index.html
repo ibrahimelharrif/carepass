@@ -286,25 +286,6 @@
   .step p{font-size:14.5px; color:var(--gray);}
 
   /* BENEFITS GRID */
-  .benefits-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
-  .benefit-card{
-    background:var(--white); border-radius:18px; border:1px solid var(--gray-line);
-    padding:28px 22px; text-align:left;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .benefit-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md);}
-  .benefit-icon{
-    width:48px; height:48px; border-radius:12px;
-    background:var(--navy); color:var(--teal);
-    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
-  }
-  .benefit-pct{
-    font-family:'JetBrains Mono',monospace; font-size:30px; font-weight:600; color:var(--navy);
-  }
-  .benefit-pct > span.unit{font-size:15px; color:var(--gray); font-weight:400; font-family:'Poppins',sans-serif;}
-  .benefit-card h3{font-size:15.5px; margin-top:6px; color:var(--gray); font-weight:500;}
-
-  /* FREE SERVICES CALLOUT */
   .callout{
     display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:26px;
     background:linear-gradient(120deg, var(--navy) 0%, #142a5c 100%);
@@ -326,20 +307,6 @@
   .callout .freq .u{font-size:10px; letter-spacing:.1em; color:#9FB0CC; text-transform:uppercase;}
 
   /* PROVIDERS */
-  .providers-wrap{display:grid; grid-template-columns:0.8fr 1.2fr; gap:60px; align-items:center;}
-  .provider-stat{
-    font-family:'JetBrains Mono',monospace; font-size:88px; font-weight:600; color:var(--navy); line-height:1;
-  }
-  .provider-stat .plus{color:var(--teal);}
-  .provider-cats{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  .provider-cat{
-    display:flex; align-items:center; gap:12px;
-    background:var(--white); border:1px solid var(--gray-line); border-radius:14px; padding:18px;
-  }
-  .provider-cat .material-symbols-outlined{color:var(--teal-dark); font-size:24px;}
-  .provider-cat span.label{font-size:14px; font-weight:500;}
-
-  /* PARTNER MARQUEE */
   .partners-section{padding:70px 0 100px; overflow:hidden;}
   .partners-head{margin-bottom:44px;}
   .marquee-row{
