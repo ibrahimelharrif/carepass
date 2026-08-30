@@ -5,7 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="only light">
 <meta name="supported-color-schemes" content="light">
+<meta name="description" content="CarePass is a digital health discount card connecting you to trusted hospitals, clinics, pharmacies and laboratories across Accra, with up to 40% off healthcare services.">
+<link rel="canonical" href="https://carepassghana.com/">
 <title>CarePass — Quality care. Smarter savings.</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CarePass",
+  "url": "https://carepassghana.com/",
+  "logo": "https://carepassghana.com/assets/logo.png",
+  "description": "A digital healthcare discount card connecting subscribers to trusted hospitals, clinics, pharmacies and laboratories across Accra, Ghana.",
+  "areaServed": "Accra, Ghana",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Lakeside University Hospital LTD"
+  }
+}
+</script>
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLC804CBLG"></script>
@@ -19,7 +37,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
   :root{
     color-scheme: only light;
@@ -48,10 +65,10 @@
   }
   .mono{font-family:'JetBrains Mono',monospace;}
   .material-symbols-outlined{
-    font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;
-    vertical-align:middle;
-    line-height:1;
+    display:inline-flex; align-items:center; justify-content:center;
+    vertical-align:middle; line-height:1;
   }
+  .material-symbols-outlined svg{ display:block; }
   img{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
   ul{list-style:none;}
@@ -433,6 +450,63 @@
     white-space:nowrap; line-height:1.25;
   }
 
+  /* SAVINGS CALCULATOR */
+  .calc-card{
+    background:var(--white); border:1px solid var(--gray-line); border-radius:24px;
+    padding:36px; box-shadow:var(--shadow-sm);
+  }
+  .calc-plans{
+    display:inline-flex; background:var(--gray-bg); border-radius:12px; padding:4px; gap:4px; margin-bottom:32px;
+  }
+  .calc-plan-btn{
+    border:none; background:transparent; padding:10px 24px; border-radius:9px;
+    font-family:'Poppins',sans-serif; font-size:14.5px; font-weight:600; color:var(--gray);
+    cursor:pointer; transition:background .2s ease, color .2s ease, box-shadow .2s ease;
+  }
+  .calc-plan-btn.active{ background:var(--white); color:var(--navy); box-shadow:var(--shadow-sm); }
+  .calc-plan-btn:hover:not(.active){ color:var(--navy); }
+  .calc-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:center;}
+  .calc-field{margin-bottom:26px;}
+  .calc-field:last-child{margin-bottom:0;}
+  .calc-field label{display:block; font-size:14px; font-weight:600; color:var(--navy); margin-bottom:12px;}
+  .calc-field input[type="range"]{
+    width:100%; height:6px; border-radius:6px; background:var(--gray-line);
+    appearance:none; -webkit-appearance:none; outline:none; cursor:pointer;
+  }
+  .calc-field input[type="range"]::-webkit-slider-thumb{
+    appearance:none; -webkit-appearance:none; width:20px; height:20px; border-radius:50%;
+    background:var(--teal); border:3px solid var(--white); box-shadow:0 2px 8px rgba(0,180,166,0.4);
+    cursor:pointer; transition:transform .15s ease;
+  }
+  .calc-field input[type="range"]::-webkit-slider-thumb:hover{ transform:scale(1.15); }
+  .calc-field input[type="range"]::-moz-range-thumb{
+    width:20px; height:20px; border-radius:50%; background:var(--teal); border:3px solid var(--white);
+    box-shadow:0 2px 8px rgba(0,180,166,0.4); cursor:pointer;
+  }
+  .calc-field-value{
+    margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--teal-dark); font-weight:600;
+  }
+  .calc-result{
+    background:var(--navy); border-radius:18px; padding:30px 28px; position:relative; overflow:hidden;
+  }
+  .calc-result::before{
+    content:""; position:absolute; width:220px; height:220px; border-radius:50%;
+    background:radial-gradient(circle, rgba(0,180,166,0.18), transparent 70%); top:-80px; right:-70px;
+  }
+  .calc-result-row{
+    display:flex; justify-content:space-between; align-items:center; padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1); position:relative; z-index:1;
+  }
+  .calc-result-row span:first-child{color:#AEB9D1; font-size:13.5px;}
+  .calc-result-row span.mono{font-family:'JetBrains Mono',monospace; color:var(--white); font-size:15px; font-weight:600;}
+  .calc-savings{
+    margin-top:18px; padding-top:14px; position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:flex-start; gap:2px;
+  }
+  .calc-savings > span:first-child{color:#AEB9D1; font-size:13.5px;}
+  .calc-savings .mono{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:34px; font-weight:700; line-height:1.2;}
+  .calc-savings-sub{color:#AEB9D1; font-size:12px;}
+
   /* FAQ / TERMS */
   .accordion{border-top:1px solid var(--gray-line);}
   .acc-item{border-bottom:1px solid var(--gray-line);}
@@ -572,6 +646,8 @@
     .steps{grid-template-columns:1fr; gap:36px;}
     .step:not(:last-child)::after{display:none;}
     .provider-panel{grid-template-columns:1fr; gap:20px;}
+    .calc-grid{grid-template-columns:1fr; gap:28px;}
+    .calc-card{padding:28px;}
     .download-cta{grid-template-columns:1fr; padding:50px 30px; text-align:center;}
     .qr-box{justify-self:center;}
     .download-cta .ctas{justify-content:center;}
@@ -619,6 +695,12 @@
     .hero{padding:130px 0 60px;}
     .strip .wrap{justify-content:center; text-align:center;}
     .footer-grid{grid-template-columns:1fr;}
+    .calc-card{padding:20px;}
+    .calc-plans{display:flex; width:100%;}
+    .calc-plan-btn{flex:1; padding:10px 12px; font-size:13.5px;}
+    .calc-result{padding:24px 20px;}
+    .calc-savings .mono{font-size:28px;}
+    .calc-field label{font-size:13.5px;}
   }
   .skip-link:focus{
     position:fixed; top:10px; left:10px; background:var(--teal); color:#fff; padding:10px 16px;
@@ -645,12 +727,13 @@
         <a href="#providers">Providers</a>
         <a href="#about">About</a>
         <a href="#how">How it works</a>
+        <a href="blog.html">Blog</a>
         <a href="#faq">Terms</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-cta">
         <a href="#download" class="btn btn-primary">
-          <span class="material-symbols-outlined" style="font-size:18px;">download</span>
+          <span class="material-symbols-outlined" style="font-size:18px;"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10m0 0l-3.5-3.5M12 13l3.5-3.5"/><path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg></span>
           Get the app
         </a>
       </div>
@@ -674,18 +757,18 @@
         <p class="lead">CarePass connects you to a trusted network of clinics, hospitals, pharmacies and laboratories across Accra, giving you exclusive discounts on the healthcare you already need. No hidden fees. No complicated process.</p>
         <div class="hero-ctas">
           <a href="insert link here" class="btn-store">
-            <span class="material-symbols-outlined">phone_iphone</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="0.8" fill="currentColor" stroke="none"/></svg></span>
             <span class="store-text"><small>Download on the</small><span>App Store</span></span>
           </a>
           <a href="insert link here" class="btn-store">
-            <span class="material-symbols-outlined">android</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="12" height="9" rx="3"/><line x1="9" y1="10" x2="8" y2="7"/><line x1="15" y1="10" x2="16" y2="7"/><circle cx="9.5" cy="14.3" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="14.3" r="1" fill="currentColor" stroke="none"/></svg></span>
             <span class="store-text"><small>Get it on</small><span>Google Play</span></span>
           </a>
         </div>
         <div class="hero-trust">
-          <div class="item"><span class="material-symbols-outlined">verified</span> 30+ partner providers</div>
-          <div class="item"><span class="material-symbols-outlined">payments</span> Pay direct, no markups</div>
-          <div class="item"><span class="material-symbols-outlined">block</span> Not insurance</div>
+          <div class="item"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.5 2.5L16 9"/></svg></span> 30+ partner providers</div>
+          <div class="item"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="6.5" cy="15" r="1" fill="currentColor" stroke="none"/></svg></span> Pay direct, no markups</div>
+          <div class="item"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="6.5" y1="6.5" x2="17.5" y2="17.5"/></svg></span> Not insurance</div>
         </div>
       </div>
 
@@ -708,10 +791,10 @@
             </div>
             <div class="card-mark"></div>
           </div>
-          <div class="badge badge-1"><span class="material-symbols-outlined">monitor_heart</span>Doctors <span class="pct">-40%</span></div>
-          <div class="badge badge-2"><span class="material-symbols-outlined">biotech</span>Labs <span class="pct">-40%</span></div>
-          <div class="badge badge-3"><span class="material-symbols-outlined">medication</span>Medicines <span class="pct">-25%</span></div>
-          <div class="badge badge-4"><span class="material-symbols-outlined">health_and_safety</span>Packages <span class="pct">-40%</span></div>
+          <div class="badge badge-1"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><polyline points="5,12 8,12 10,8 13,16 15,12 19,12"/></svg></span>Doctors <span class="pct">-40%</span></div>
+          <div class="badge badge-2"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="14.5" y1="14.5" x2="20" y2="20"/><circle cx="10" cy="10" r="1.8" fill="currentColor" stroke="none"/></svg></span>Labs <span class="pct">-40%</span></div>
+          <div class="badge badge-3"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(45 12 12)"><rect x="5" y="9" width="14" height="6" rx="3"/><line x1="12" y1="9" x2="12" y2="15"/></g></svg></span>Medicines <span class="pct">-25%</span></div>
+          <div class="badge badge-4"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9.3 12.2l1.9 1.9L15 10"/></svg></span>Packages <span class="pct">-40%</span></div>
         </div>
       </div>
     </div>
@@ -735,7 +818,7 @@
         <h2>One card, every kind of care</h2>
         <p>From hospitals to neighborhood pharmacies, your CarePass card is accepted, and discounted, at every kind of provider across Accra.</p>
         <a href="https://forms.gle/m2NoPXGE7uHCxvh2A" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top:20px;">
-          <span class="material-symbols-outlined" style="font-size:18px;">add_business</span>
+          <span class="material-symbols-outlined" style="font-size:18px;"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M8 9V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg></span>
           Register your practice
         </a>
       </div>
@@ -744,30 +827,30 @@
           <div class="provider-stat"><span class="counting" data-target="25">0</span><span class="plus">+</span></div>
           <p class="provider-stat-label">Trusted healthcare providers across Accra, and growing every month.</p>
           <div class="discount-tags">
-            <span class="discount-tag"><span class="material-symbols-outlined">monitor_heart</span>Doctors <b>-40%</b></span>
-            <span class="discount-tag"><span class="material-symbols-outlined">medication</span>Medicines <b>-25%</b></span>
-            <span class="discount-tag"><span class="material-symbols-outlined">biotech</span>Labs <b>-40%</b></span>
-            <span class="discount-tag"><span class="material-symbols-outlined">health_and_safety</span>Packages <b>-40%</b></span>
+            <span class="discount-tag"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><polyline points="5,12 8,12 10,8 13,16 15,12 19,12"/></svg></span>Doctors <b>-40%</b></span>
+            <span class="discount-tag"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(45 12 12)"><rect x="5" y="9" width="14" height="6" rx="3"/><line x1="12" y1="9" x2="12" y2="15"/></g></svg></span>Medicines <b>-25%</b></span>
+            <span class="discount-tag"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="14.5" y1="14.5" x2="20" y2="20"/><circle cx="10" cy="10" r="1.8" fill="currentColor" stroke="none"/></svg></span>Labs <b>-40%</b></span>
+            <span class="discount-tag"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9.3 12.2l1.9 1.9L15 10"/></svg></span>Packages <b>-40%</b></span>
           </div>
         </div>
         <div class="provider-cats-grid">
           <div class="provider-cat-card">
-            <div class="pc-icon"><span class="material-symbols-outlined">local_hospital</span></div>
+            <div class="pc-icon"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="7" y1="12" x2="17" y2="12"/></svg></span></div>
             <h3>Hospitals</h3>
             <p>Emergency &amp; specialist care</p>
           </div>
           <div class="provider-cat-card">
-            <div class="pc-icon"><span class="material-symbols-outlined">medical_services</span></div>
+            <div class="pc-icon"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="9.5" y1="13.5" x2="14.5" y2="13.5"/></svg></span></div>
             <h3>Clinics</h3>
             <p>General &amp; family practice</p>
           </div>
           <div class="provider-cat-card">
-            <div class="pc-icon"><span class="material-symbols-outlined">medication</span></div>
+            <div class="pc-icon"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(45 12 12)"><rect x="5" y="9" width="14" height="6" rx="3"/><line x1="12" y1="9" x2="12" y2="15"/></g></svg></span></div>
             <h3>Pharmacies</h3>
             <p>Prescriptions &amp; essentials</p>
           </div>
           <div class="provider-cat-card">
-            <div class="pc-icon"><span class="material-symbols-outlined">science</span></div>
+            <div class="pc-icon"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6l-5.3 9.6A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.3-2.4L14 8V2"/><line x1="9" y1="2" x2="15" y2="2"/><line x1="7.5" y1="14" x2="16.5" y2="14"/></svg></span></div>
             <h3>Laboratories</h3>
             <p>Tests &amp; diagnostics</p>
           </div>
@@ -950,12 +1033,12 @@
       </div>
       <div class="feature-list reveal-group">
         <div class="feature-item">
-          <div class="feature-icon"><span class="material-symbols-outlined">shield</span></div>
+          <div class="feature-icon"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/></svg></span></div>
           <h3>Quality care</h3>
           <p>Trusted providers, better outcomes.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><span class="material-symbols-outlined">sell</span></div>
+          <div class="feature-icon"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3h6a2 2 0 0 1 2 2v6a2 2 0 0 1-.59 1.41l-8 8a2 2 0 0 1-2.82 0l-5-5a2 2 0 0 1 0-2.82l8-8A2 2 0 0 1 12 3z"/><circle cx="15.5" cy="7.5" r="1.1" fill="currentColor" stroke="none"/></svg></span></div>
           <h3>Lower prices</h3>
           <p>Exclusive discounts that make a difference.</p>
         </div>
@@ -995,7 +1078,7 @@
   <section class="section section-gray" style="padding-top:0;">
     <div class="wrap">
       <div class="callout reveal">
-        <div class="icon-wrap"><span class="material-symbols-outlined">event_repeat</span></div>
+        <div class="icon-wrap"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><path d="M9 15.2a3.5 3.5 0 0 1 6-2.5"/><path d="M15 12.3l1.3-1v2"/></svg></span></div>
         <div>
           <h3>Two free checks, every month</h3>
           <p>Subscribers get a free blood pressure measurement and random blood glucose test once per month, from any one participating provider — no appointment needed.</p>
@@ -1020,7 +1103,7 @@
         <div class="acc-item">
           <div class="acc-head">
             <h3><span class="num">01</span>Service definition</h3>
-            <span class="material-symbols-outlined">add</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
@@ -1031,7 +1114,7 @@
         <div class="acc-item">
           <div class="acc-head">
             <h3><span class="num">02</span>Subscription &amp; card usage</h3>
-            <span class="material-symbols-outlined">add</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
@@ -1043,7 +1126,7 @@
         <div class="acc-item">
           <div class="acc-head">
             <h3><span class="num">03</span>Payment to providers</h3>
-            <span class="material-symbols-outlined">add</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
@@ -1056,7 +1139,7 @@
         <div class="acc-item">
           <div class="acc-head">
             <h3><span class="num">04</span>Card verification</h3>
-            <span class="material-symbols-outlined">add</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
@@ -1068,7 +1151,7 @@
         <div class="acc-item">
           <div class="acc-head">
             <h3><span class="num">05</span>Periodic free services</h3>
-            <span class="material-symbols-outlined">add</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
@@ -1080,12 +1163,63 @@
         <div class="acc-item">
           <div class="acc-head">
             <h3><span class="num">06</span>Discount display &amp; calculation</h3>
-            <span class="material-symbols-outlined">add</span>
+            <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
               <p>Base prices vary between providers, so CarePass displays discount percentages only within the app, not actual service prices.</p>
               <p>The displayed percentage is applied to the provider's standard listed price at the time of service.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVINGS CALCULATOR -->
+  <section class="section" id="calculator">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Calculate your savings</div>
+        <h2>See how much CarePass could save you</h2>
+        <p>Adjust the sliders to match your typical healthcare spending and see the difference a CarePass membership makes over a year.</p>
+      </div>
+      <div class="calc-card reveal">
+        <div class="calc-plans">
+          <button class="calc-plan-btn active" data-plan="individual" type="button">Just Me</button>
+          <button class="calc-plan-btn" data-plan="family" type="button">Family</button>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-inputs">
+            <div class="calc-field">
+              <label>Doctor visits per year</label>
+              <input type="range" id="calcVisits" min="0" max="20" step="1" value="2">
+              <div class="calc-field-value"><span id="calcVisitsVal">2</span> visits / year</div>
+            </div>
+            <div class="calc-field">
+              <label>Monthly medicine spend</label>
+              <input type="range" id="calcMeds" min="0" max="1000" step="10" value="100">
+              <div class="calc-field-value">GH&#8373;<span id="calcMedsVal">100</span> / month</div>
+            </div>
+            <div class="calc-field">
+              <label>Lab tests per year</label>
+              <input type="range" id="calcLabs" min="0" max="20" step="1" value="2">
+              <div class="calc-field-value"><span id="calcLabsVal">2</span> tests / year</div>
+            </div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-result-row">
+              <span>Without CarePass</span>
+              <span class="mono" id="calcWithout">GH&#8373;0</span>
+            </div>
+            <div class="calc-result-row">
+              <span>With CarePass</span>
+              <span class="mono" id="calcWith">GH&#8373;0</span>
+            </div>
+            <div class="calc-savings">
+              <span>You save</span>
+              <span class="mono" id="calcSavings">GH&#8373;0</span>
+              <span class="calc-savings-sub">per year</span>
             </div>
           </div>
         </div>
@@ -1102,11 +1236,11 @@
           <p>Join CarePass and start saving on doctors, medicines, lab tests and health packages across Accra — today.</p>
           <div class="ctas">
             <a href="insert link here" class="btn-store">
-              <span class="material-symbols-outlined">phone_iphone</span>
+              <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="0.8" fill="currentColor" stroke="none"/></svg></span>
               <span class="store-text"><small>Download on the</small><span>App Store</span></span>
             </a>
             <a href="insert link here" class="btn-store">
-              <span class="material-symbols-outlined">android</span>
+              <span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="12" height="9" rx="3"/><line x1="9" y1="10" x2="8" y2="7"/><line x1="15" y1="10" x2="16" y2="7"/><circle cx="9.5" cy="14.3" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="14.3" r="1" fill="currentColor" stroke="none"/></svg></span>
               <span class="store-text"><small>Get it on</small><span>Google Play</span></span>
             </a>
           </div>
@@ -1129,13 +1263,13 @@
       </div>
       <div class="contact-grid reveal-group">
         <div class="contact-card">
-          <div class="icon-wrap"><span class="material-symbols-outlined">mail</span></div>
+          <div class="icon-wrap"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,6 12,13 22,6"/></svg></span></div>
           <h3>Email support</h3>
           <a class="value" href="mailto:support@carepassghana.com">support@carepassghana.com</a>
           <p class="hint">We typically reply within one business day.</p>
         </div>
         <div class="contact-card">
-          <div class="icon-wrap"><span class="material-symbols-outlined">chat</span></div>
+          <div class="icon-wrap"><span class="material-symbols-outlined"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg></span></div>
           <h3>WhatsApp</h3>
           <a class="value" href="https://wa.me/233551502922">+233 55 150 2922</a>
           <p class="hint">Message us for quick questions and provider support.</p>
@@ -1159,12 +1293,14 @@
           <li><a href="#providers">Providers</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#how">How it works</a></li>
+          <li><a href="#calculator">Calculate your savings</a></li>
           <li><a href="https://forms.gle/m2NoPXGE7uHCxvh2A" target="_blank" rel="noopener noreferrer">Register your practice</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Support</h4>
         <ul>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="#faq">Terms &amp; conditions</a></li>
           <li><a href="#contact">Contact us</a></li>
           <li><a href="mailto:support@carepassghana.com">Email support</a></li>
@@ -1198,6 +1334,74 @@
     const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
     scrollProgress.style.width = progress + '%';
   }, { passive: true });
+
+  // savings calculator
+  (function(){
+    const plans = {
+      individual: { visits: 2, meds: 100, labs: 2 },
+      family: { visits: 6, meds: 320, labs: 5 }
+    };
+    const RATE_VISIT = 150;   // avg GHS per doctor consultation
+    const RATE_LAB = 200;     // avg GHS per lab test
+    const DISCOUNT_VISIT = 0.40;
+    const DISCOUNT_MEDS = 0.25;
+    const DISCOUNT_LAB = 0.40;
+
+    const visitsSlider = document.getElementById('calcVisits');
+    const medsSlider = document.getElementById('calcMeds');
+    const labsSlider = document.getElementById('calcLabs');
+    const visitsVal = document.getElementById('calcVisitsVal');
+    const medsVal = document.getElementById('calcMedsVal');
+    const labsVal = document.getElementById('calcLabsVal');
+    const withoutEl = document.getElementById('calcWithout');
+    const withEl = document.getElementById('calcWith');
+    const savingsEl = document.getElementById('calcSavings');
+    const planBtns = document.querySelectorAll('.calc-plan-btn');
+
+    function fmt(n){
+      return 'GH\u20b5' + Math.round(n).toLocaleString('en-GH');
+    }
+
+    function recalc(){
+      const visits = Number(visitsSlider.value);
+      const meds = Number(medsSlider.value);
+      const labs = Number(labsSlider.value);
+
+      visitsVal.textContent = visits;
+      medsVal.textContent = meds;
+      labsVal.textContent = labs;
+
+      const visitTotal = visits * RATE_VISIT;
+      const medsTotal = meds * 12;
+      const labTotal = labs * RATE_LAB;
+
+      const without = visitTotal + medsTotal + labTotal;
+      const withCP = visitTotal * (1 - DISCOUNT_VISIT) + medsTotal * (1 - DISCOUNT_MEDS) + labTotal * (1 - DISCOUNT_LAB);
+      const savings = without - withCP;
+
+      withoutEl.textContent = fmt(without);
+      withEl.textContent = fmt(withCP);
+      savingsEl.textContent = fmt(savings);
+    }
+
+    planBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        planBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const plan = plans[btn.dataset.plan];
+        visitsSlider.value = plan.visits;
+        medsSlider.value = plan.meds;
+        labsSlider.value = plan.labs;
+        recalc();
+      });
+    });
+
+    [visitsSlider, medsSlider, labsSlider].forEach(el => {
+      if (el) el.addEventListener('input', recalc);
+    });
+
+    if (visitsSlider) recalc();
+  })();
 
   // mobile menu toggle
   const menuToggle = document.querySelector('.menu-toggle');
