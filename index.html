@@ -20,7 +20,7 @@
   "areaServed": "Accra, Ghana",
   "parentOrganization": {
     "@type": "Organization",
-    "name": "Lakeside University Hospital LTD"
+    "name": "Delta Diagnostic LTD"
   }
 }
 </script>
@@ -197,6 +197,15 @@
     color:var(--navy);
   }
   .hero h1 .accent{color:var(--teal);}
+  .hero-terms-link{
+    display:inline-flex; align-items:center; gap:5px;
+    font-size:12.5px; font-weight:500; color:var(--gray);
+    margin-bottom:18px; padding-bottom:1px;
+    border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .hero-terms-link:hover{ color:var(--teal-dark); border-color:var(--teal-dark); }
+  .hero-terms-link .material-symbols-outlined{ font-size:14px; }
   .hero p.lead{
     margin-top:22px; font-size:17.5px; color:var(--gray); max-width:490px;
   }
@@ -602,6 +611,7 @@
 
   /* HERO LOAD-IN */
   .hero-copy .eyebrow,
+  .hero-copy .hero-terms-link,
   .hero-copy h1,
   .hero-copy p.lead,
   .hero-copy .hero-ctas,
@@ -610,6 +620,7 @@
     animation:heroIn .7s cubic-bezier(.16,.8,.24,1) forwards;
   }
   .hero-copy .eyebrow{animation-delay:.05s;}
+  .hero-copy .hero-terms-link{animation-delay:.10s;}
   .hero-copy h1{animation-delay:.15s;}
   .hero-copy p.lead{animation-delay:.30s;}
   .hero-copy .hero-ctas{animation-delay:.42s;}
@@ -632,7 +643,7 @@
     .marquee-track{ animation:none !important; }
     .marquee-row{ overflow-x:auto; -webkit-mask-image:none; mask-image:none; }
     .reveal, .reveal-group > *,
-    .hero-copy .eyebrow, .hero-copy h1, .hero-copy p.lead, .hero-copy .hero-ctas, .hero-copy .hero-trust,
+    .hero-copy .eyebrow, .hero-copy .hero-terms-link, .hero-copy h1, .hero-copy p.lead, .hero-copy .hero-ctas, .hero-copy .hero-trust,
     .hero-visual{
       opacity:1 !important; transform:none !important; animation:none !important;
     }
@@ -753,6 +764,10 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <div class="eyebrow">Digital health card &middot; Accra, Ghana</div>
+        <a href="terms.html" class="hero-terms-link">
+          <span class="material-symbols-outlined" style="font-size:14px;"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><polyline points="14,3 14,8 19,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span>
+          See terms &amp; conditions
+        </a>
         <h1>Quality care.<br><span class="accent">Smarter savings.</span></h1>
         <p class="lead">CarePass connects you to a trusted network of clinics, hospitals, pharmacies and laboratories across Accra, giving you exclusive discounts on the healthcare you already need. No hidden fees. No complicated process.</p>
         <div class="hero-ctas">
@@ -1097,7 +1112,11 @@
       <div class="section-head reveal">
         <div class="eyebrow">Terms &amp; conditions</div>
         <h2>The essentials, in plain terms</h2>
-        <p>CarePass is operated by Lakeside University Hospital LTD. Full terms below — please read before subscribing.</p>
+        <p>CarePass is operated by Delta Diagnostic LTD. Full terms below — please read before subscribing.</p>
+        <a href="terms.html" class="btn btn-ghost" style="margin-top:20px;">
+          See full terms &amp; conditions
+          <span class="material-symbols-outlined" style="font-size:18px;"><svg class="icon-svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13,5 20,12 13,19"/></svg></span>
+        </a>
       </div>
       <div class="accordion reveal" id="accordion">
         <div class="acc-item">
@@ -1316,7 +1335,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 CarePass. Operated by Lakeside University Hospital LTD.</span>
+      <span>&copy; 2026 CarePass. Operated by Delta Diagnostic LTD.</span>
       <span>CarePass is not insurance.</span>
     </div>
   </div>
