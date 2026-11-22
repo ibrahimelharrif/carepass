@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex">
+<title>Download CarePass</title>
+<meta name="description" content="Download the CarePass app on the App Store or Google Play.">
+<link rel="canonical" href="https://carepassghana.com/app/">
+<link rel="icon" type="image/png" href="/assets/icon-square.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CarePass">
+<meta property="og:title" content="Download CarePass">
+<meta property="og:description" content="Get the CarePass app on the App Store or Google Play.">
+<meta property="og:url" content="https://carepassghana.com/app/">
+<meta property="og:image" content="https://carepassghana.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLC804CBLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JLC804CBLG');
+</script>
+<style>
+  :root{color-scheme:only light;--navy:#0D1B3D;--teal:#00B4A6;--teal-light:#E6F7F4;--gray:#64748B;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg,#fff,#E6F7F4);color:var(--navy);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
+  .card{background:#fff;border:1px solid #E7EAEE;border-radius:24px;padding:40px 32px;max-width:420px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(13,27,61,.10)}
+  .card img{height:34px;margin:0 auto 24px}
+  h1{font-size:24px;letter-spacing:-.02em;margin-bottom:8px}
+  p{color:var(--gray);font-size:15px;margin-bottom:28px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:15px 20px;border-radius:12px;margin-bottom:12px;transition:transform .18s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn svg{width:22px;height:22px}
+  .back{display:inline-block;margin-top:14px;font-size:13px;color:var(--gray);text-decoration:none}
+  .back:hover{color:var(--teal)}
+</style>
+</head>
+<body>
+  <main class="card">
+    <img src="/assets/logo.png" alt="CarePass">
+    <h1 id="title">Get the CarePass app</h1>
+    <p id="msg">Choose your store to download.</p>
+    <a class="btn" id="ios" href="https://apps.apple.com/app/carepass-gh/id6820919661">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="0.8" fill="currentColor" stroke="none"/></svg>
+      Download on the App Store
+    </a>
+    <a class="btn" id="android" href="https://play.google.com/store/apps/details?id=com.fady.carepass&pcampaignid=web_share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="12" height="9" rx="3"/><line x1="9" y1="10" x2="8" y2="7"/><line x1="15" y1="10" x2="16" y2="7"/><circle cx="9.5" cy="14.3" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="14.3" r="1" fill="currentColor" stroke="none"/></svg>
+      Get it on Google Play
+    </a>
+    <a class="back" href="/">Back to carepassghana.com</a>
+  </main>
+<script>
+  (function(){
+    var ua = navigator.userAgent || '';
+    var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isAndroid = /Android/i.test(ua);
+    var target = isIOS ? document.getElementById('ios').href
+               : isAndroid ? document.getElementById('android').href : null;
+    if (target) {
+      document.getElementById('title').textContent = 'Taking you to the store…';
+      document.getElementById('msg').textContent = 'If nothing happens, tap your store below.';
+      setTimeout(function(){ window.location.replace(target); }, 400);
+    }
+  })();
+</script>
+</body>
+</html>
